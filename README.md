@@ -1,6 +1,6 @@
 # Projet Infrastructure et Logiciels
 
-Les fichiers pour la mise en place du projet Infrastructure et Logiciels su semestre 7
+Les fichiers pour la mise en place du projet Infrastructure et Logiciels du semestre 7
 
 ## Les pré-requis
 
