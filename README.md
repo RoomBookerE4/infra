@@ -29,6 +29,10 @@ Vous trouverez les reperoires/fichiers :
 * scripts/install_moodle.sh : Mise en place de l'application Moodle
 * scripts/install_myadmin.sh : Mise en place de l'application PhpMyAdmin
 * scripts/install_web.sh : Mise en place du serveur Apache2
+* scripts/install_backup.sh : Création d'un fichier de sauvegarde 
+* scripts/install_roombooker.sh  
+* reverse_proxy.sh :
+* script_cron.sh : 
 
 ## Description du Labs
 
