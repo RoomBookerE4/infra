@@ -1,0 +1,10 @@
+/* Show it's not fixed to the top */
+body {
+    min-height: 75rem;
+}
+
+/** Cards **/
+.card-outline-primary {
+    background-color: var(--bs-primary);
+    color: white !important;
+}

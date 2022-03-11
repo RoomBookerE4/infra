@@ -1,0 +1,53 @@
+{{ form_start(form) }}
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.date) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.date) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.timeStart) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.timeStart) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.timeEnd) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.timeEnd) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.room) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.room) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.participants) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.participants, {'attr': {'class': 'tom-select'}}) }}
+        </div>
+    </div>
+{{ form_end(form) }}
+
+{% block javascripts %}
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
+<script type="text/javascript">
+new TomSelect(".tom-select",{
+	allowEmptyOption: true,
+	create: true
+});
+</script>
+{% endblock %}

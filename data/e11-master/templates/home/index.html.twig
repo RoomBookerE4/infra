@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RoomBooker - Outil de réservation de salles{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-lg-8">
+        <div class="card">
+            <div class="card-header card-outline-primary">
+                <h4 class="card-title">Réserver une salle</h4>
+            </div>
+            <div class="card-body">
+                {{ render(controller(
+                    'App\\Controller\\BookingController::booking'
+                )) }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-xs-12 col-lg-4 mt-sm-3 m-0">
+        <div class="card">
+            <div class="card-header card-outline-primary">
+                <h5 class="card-title">Mes réservations</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                {% for meeting in meetings %}
+                    <li class="list-group-item">
+                        {% for participant in meeting.participants %}
+                            {% if app.user.getId()==participant.getUser().getId() and participant.getIsInvitation() %}
+                                &#128081;
+                            {% endif %}
+                        {% endfor %}
+                        <span class="text-muted fs-6"> {{ meeting.timeStart|date('d/m') }}</span>
+                         - {{ meeting.timeStart|date('H:m') }} &#10145; {{ meeting.timeEnd|date('H:m') }} 
+                        <span class="float-end">&#128205; {{ meeting.room }}</span>
+                        <button type="button" class="btn btn-primary">
+                            <a style="color:inherit; text-decoration:none;" href="{{ path('booking_view', {'id': meeting.id}) }}">More</a>
+                        </button>
+                    </li>
+                {% else %}
+                    <span>Aucun rendez-vous prévu.</span>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

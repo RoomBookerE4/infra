@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% set buffer = false %}
+
+    <div class="col-md-12 col-xs-12 col-lg-4">
+        <div class="card m-3">
+            <div class="card-header card-outline-primary">
+                <h5 class="card-title">Réservation du {{ booking.timeStart|date('d-m-Y') }}</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">&#127380; {{ booking.id }}</li>
+                    <li class="list-group-item">&#128347; {{ booking.timeStart|date('H:i') }} &#10145; {{ booking.timeEnd|date('H:i') }}</li>
+                    <li class="list-group-item">&#128205; {{ booking.room }}</li>
+                    <li class="list-group-item">
+                        &#128107;
+                        <ul class="list-group list-group-flush">
+                            {% for participant in booking.participants %}
+                                {% if app.user.getId()==participant.getUser().getId() and participant.getIsInvitation()==true %}
+                                    {% set buffer = true %}
+                                {% else %}
+                                    {% set buffer = false %}
+                                {% endif %}
+                                
+                                <li class="list-group-item">
+                                    {{ participant.getUser() }}
+                                    {% if participant.getUser() == app.user %}
+                                        &#9995;
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+                {% if booking.timeEnd|date('Y-m-d')<="now"|date('Y-m-d') %}
+                    {% if buffer %}
+                        <button type="button" class="btn btn-warning">Annuler la réservation</button>
+                    {% else %}
+                        <div class="inline">
+                            <button type="button" class="btn btn-success">Accepter la réunion</button>
+                            <button type="button" class="btn btn-danger">Refuser la réunion</button>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <h5>Réservation passée</h5>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary">
+        <a style="color:inherit; text-decoration:none;" href="{{ path('home') }}">< Retour</a>
+    </button>
+{% endblock %}

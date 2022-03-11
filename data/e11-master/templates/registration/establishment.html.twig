@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un établissement{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+    <h2 class="card-title">Créer un établissement</h2>
+    </div>
+    <div class="card-body">
+        {{ form_start(form) }}
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.name) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.name) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.address) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.address) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.timeOpen) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.timeOpen) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.timeClose) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.timeClose) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.userName) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.userName) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.userSurname) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.userSurname) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.userEmail) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.userEmail) }}
+        </div>
+    </div>
+    <div class="form-group row mb-3 align-items-center">
+        <div class="col-4">
+            {{ form_label(form.userPassword) }}
+        </div>
+        <div class="col-8">
+            {{ form_widget(form.userPassword) }}
+        </div>
+    </div>
+{{ form_end(form) }}
+
+    </div>
+</div>
+{% endblock %}

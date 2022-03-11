@@ -1,0 +1,10 @@
+Bonjour {{ firstName }} {{ lastName }},<br>
+<br>
+{{ organizer.user.userIdentifier }} te convie à une réunion.<br>
+<br>
+🛫 Début de réunion : {{ booking.timeStart|date("d/m/Y à H:m") }}<br>
+🛬 Fin de réunion : {{ booking.timeEnd|date("d/m/Y à H:m") }}<br>
+📍 Salle : {{ booking.room }}<br>
+<br>
+<a href="{{ acceptUrl }}" style="color: green;">Accepter cette réunion</a><br>
+<a href="{{ rejectUrl }}" style="color: red;">Refuser cette réunion</a><br>
